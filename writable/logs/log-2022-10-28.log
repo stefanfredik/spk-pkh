@@ -1,0 +1,17 @@
+CRITICAL - 2022-10-28 22:15:37 --> Undefined variable $title
+in APPPATH/Views/temp/layout/navbar.php on line 46.
+ 1 APPPATH/Views/temp/layout/navbar.php(46): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/temp/layout/navbar.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/View/View.php(429): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/temp/index.php(8): CodeIgniter\View\View->include()
+ 6 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/temp/index.php')
+ 7 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/View/View.php(229): CodeIgniter\View\View->render()
+ 9 SYSTEMPATH/Common.php(1142): CodeIgniter\View\View->render()
+10 APPPATH/Controllers/Home.php(13): view()
+11 SYSTEMPATH/CodeIgniter.php(902): App\Controllers\Home->Index()
+12 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController()
+13 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+14 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
