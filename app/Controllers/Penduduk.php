@@ -14,7 +14,7 @@ class Penduduk extends BaseController {
         $this->pendudukModel = new PendudukModel();
     }
 
-    public function getIndex() {
+    public function index() {
         $data = [
             'title' => 'Data Penduduk',
             'url'   => $this->url
@@ -23,7 +23,7 @@ class Penduduk extends BaseController {
         return view('penduduk/index', $data);
     }
 
-    public function getTable() {
+    public function table() {
         $data = [
             'title' => 'Data Penduduk',
             'url'   => $this->url,
@@ -33,7 +33,7 @@ class Penduduk extends BaseController {
         return view('/penduduk/table', $data);
     }
 
-    public function getTambah() {
+    public function tambah() {
         $data = [
             'title' => 'Tambah Data User',
             'url'   => $this->url
@@ -42,7 +42,7 @@ class Penduduk extends BaseController {
         return view('/penduduk/tambah', $data);
     }
 
-    public function getEdit($id) {
+    public function edit($id) {
         $data = [
             'title' => 'Edit Data Penduduk',
             'penduduk'  => $this->pendudukModel->find($id),
@@ -52,7 +52,7 @@ class Penduduk extends BaseController {
         return $this->respond(view('/penduduk/edit', $data), 200);
     }
 
-    public function getDetail($id) {
+    public function detail($id) {
         $data = [
             'title' => 'Detail Data Penduduk',
             'penduduk'  => $this->pendudukModel->find($id),
@@ -62,15 +62,7 @@ class Penduduk extends BaseController {
         return $this->respond(view('/penduduk/detail', $data), 200);
     }
 
-
-    public function postFile() {
-        $data = $this->request->getVar('file');
-
-        // echo "Test";
-        return $this->respond($data);
-    }
-
-    public function postIndex() {
+    public function add() {
         $data = $this->request->getPost();
         $this->pendudukModel->save($data);
 
@@ -83,8 +75,9 @@ class Penduduk extends BaseController {
         return $this->respond($res, 200);
     }
 
-    public function postSaveedit($id) {
-        $data = $this->request->getPost();
+    public function save($id) {
+        $data = $this->request->getVar();
+        // dd($data);
         $this->pendudukModel->update($id, $data);
 
         $res = [
@@ -97,7 +90,7 @@ class Penduduk extends BaseController {
     }
 
 
-    public function deleteDelete($id) {
+    public function delete($id) {
 
         $this->pendudukModel->delete($id);
 

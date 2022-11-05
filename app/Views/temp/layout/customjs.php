@@ -21,6 +21,7 @@
             })
         })
     }
+
     async function save(event) {
         event.preventDefault();
         let form = document.querySelector("form");
@@ -48,6 +49,7 @@
             })
         })
     }
+
     async function saveEdit(event) {
         event.preventDefault();
         let form = document.querySelector("form");
@@ -56,7 +58,7 @@
         const data = new FormData(form);
         const modal = $("#modal");
 
-        axios.post(`/${url}/saveedit/${id}`, data).then(res => {
+        axios.post(`/${url}/${id}`, data).then(res => {
             debug(res);
             if (res.data.status == "success") {
                 Toast.fire({
@@ -77,6 +79,7 @@
             })
         })
     }
+
     async function getTable(url) {
         await $.get(`/${url}/table`, (data, status) => {
             $("#data").html(data);
@@ -106,6 +109,8 @@
             console.log(e)
         })
     }
+
+
     async function remove(url, target) {
         // target.event();
 
@@ -121,7 +126,7 @@
             confirmButtonText: "Hapus"
         }).then(async result => {
             if (result.isConfirmed) {
-                axios.delete(`/${url}/delete/${id}`).then(res => {
+                axios.delete(`/${url}/${id}`).then(res => {
                     console.log(res);
                     if (res.data.status == "success") {
                         Toast.fire({
@@ -144,7 +149,7 @@
         // target.preventDefault();
         const id = target.getAttribute("data-id");
         $("#modal").modal("hide");
-        $.get(`/${url}/edit/${id}`, (data, status) => {
+        $.get(`/${url}/${id}`, (data, status) => {
             if (status === "success") {
                 $("#modalArea").html(data);
                 $("#modal").modal("show")

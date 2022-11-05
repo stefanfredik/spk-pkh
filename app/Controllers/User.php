@@ -15,19 +15,19 @@ class User extends BaseController {
         $this->userModel = new UserModel();
     }
 
-    public function getIndex() {
+    public function index() {
 
         $data = [
             'title' => 'Data User',
             'url'   => $this->url,
             'userData' => $this->userModel->findAll(),
         ];
-
+        // dd($data);
         return view('/user/index', $data);
     }
 
 
-    public function getTambah() {
+    public function tambah() {
         $data = [
             'title' => 'Tambah Data User',
             'url'   => $this->url
@@ -36,7 +36,7 @@ class User extends BaseController {
         return view('/user/tambah', $data);
     }
 
-    public function getEdit($id) {
+    public function edit($id) {
         $data = [
             'title' => 'Edit Data User',
             'user'  => $this->userModel->find($id),
@@ -46,7 +46,7 @@ class User extends BaseController {
         return $this->respond(view('/user/edit', $data), 200);
     }
 
-    public function getTable() {
+    public function table() {
         $data = [
             'title' => 'Data User',
             'url'   => $this->url,
@@ -102,10 +102,8 @@ class User extends BaseController {
         return $this->respond($id);
     }
 
-    public function deleteDelete($id) {
-
+    public function delete($id) {
         $this->userModel->delete($id);
-
         $res = [
             'status'    => 'success',
             'msg'     => 'Data berhasil dihapus.',

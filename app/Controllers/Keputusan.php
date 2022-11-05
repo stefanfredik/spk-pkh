@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Controllers\BaseController;
+use App\Models\BltModel;
+use App\Models\KriteriaModel;
+use App\Models\PendudukModel;
+use App\Models\SubkriteriaModel;
+
+class Keputusan extends BaseController {
+    private $url = 'keputusan';
+    private $totalNilaiKriteria;
+
+    public function __construct() {
+        $this->kriteriaModel = new KriteriaModel();
+        $this->pendudukModel = new PendudukModel();
+        $this->subkriteriaModel = new SubkriteriaModel();
+        $this->bltModel = new BltModel();
+
+        $this->jumlahKriteria = $this->kriteriaModel->countAllResults();
+    }
+
+    public function index() {
+        $this->totalNilaiKriteria = $this->kriteriaModel->selectSum('nilai')->first()['nilai'];
+        $data = [
+            'title' => 'Data Perhitungan dan Table Moora',
+            'dataKriteria' => $this->kriteriaModel->findAll(),
+            'totalNilaiKriteria' => $this->totalNilaiKriteria,
+            'dataPeserta' => $this->bltModel->findAllDataBlt(),
+            'dataSubkriteria' => $this->subkriteriaModel->findAll(),
+        ];
+        return view('/keputusan/index', $data);
+    }
+}
