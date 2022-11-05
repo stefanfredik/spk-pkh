@@ -8,18 +8,18 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-bell"></i>
+                <i class="bi bi-person-circle"></i>
             </a>
 
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                    <i class="fas fa-envelope mr-2"></i> Profile
+                    <i class="bi bi-person-badge-fill"></i> <?= session()->get("namaUser") ?? 'User' ?>
                 </a>
 
                 <div class="dropdown-divider"></div>
 
-                <a href="#" class="dropdown-item">
+                <a href="/logout" class="dropdown-item">
                     <i class="fas fa-envelope mr-2"></i>Logout
                 </a>
             </div>

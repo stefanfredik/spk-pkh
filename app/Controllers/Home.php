@@ -8,8 +8,12 @@ use App\Controllers\BaseController;
 
 class Home extends BaseController
 {
-    public function Index()
+    public function index()
     {
+        $data = [
+            "title" => 'Halaman Home',
+            "url"   => "home"
+        ];
         return view('/home/index');
     }
 }

@@ -1,6 +1,6 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar bg-primary  sidebar-light-primary elevation-4">
     <div class="text-center">
-        <a href="/" class="brand-link">
+        <a href="/" class="brand-link ">
             <!-- <div class="brand-image  img-circle elevation-3">
                 <i class="bi bi-person-circle"></i>
             </div> -->
@@ -11,7 +11,7 @@
             class="brand-image img-circle elevation-3"
             style="opacity: 0.8"
           /> -->
-            <span class="brand-text font-weight-light display-6">SPKH PKH</span>
+            <span class="brand-text font-weight-light  text-chite display-6">SPKH PKH</span>
         </a>
     </div>
 
@@ -34,8 +34,8 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                    <a href="/user  " class="nav-link  <?= @($url == 'user') ? 'active' : '' ?>">
+                        <i class="bi bi-people-fill nav-icon"></i>
                         <p>
                             Data User
                         </p>
@@ -43,17 +43,17 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="/penduduk" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                    <a href="/penduduk" class="nav-link <?= @($url == 'penduduk') ? 'active' : '' ?>">
+                        <i class="bi bi-people nav-icon"></i>
                         <p>
                             Data Penduduk
                         </p>
                     </a>
                 </li>
 
-                <li class="nav-item menu-close">
+                <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="bi bi-card-checklist nav-icon  <?= @($url == 'kriteria') ? 'active' : '' ?>"></i>
                         <p>
                             Data Kriteria
                             <i class="right fas fa-angle-left"></i>
@@ -61,7 +61,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/kriteria" class="nav-link active">
+                            <a href="/kriteria" class="nav-link  <?= @($url == 'kriteria') ? 'active' : '' ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kriteria</p>
                             </a>
@@ -86,7 +86,7 @@
 
                 <li class="nav-item">
                     <a href="/keputusan" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="bi bi-check-all nav-icon"></i>
                         <p>
                             Keputusan PKH
                         </p>
@@ -95,9 +95,19 @@
 
                 <li class="nav-item">
                     <a href="/laporan" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="bi bi-card-list nav-icon"></i>
                         <p>
                             Laporan
+                        </p>
+                    </a>
+                </li>
+
+                <hr>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link">
+                        <i class="bi bi-box-arrow-left nav-icon"></i>
+                        <p>
+                            Logout
                         </p>
                     </a>
                 </li>

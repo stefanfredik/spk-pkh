@@ -35,7 +35,7 @@ $routes->setAutoRoute(false);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Landing::index');
 // $routes->get('user/(:num)', 'User::getEdit/$1');
 // $routes->group('user', static function ($routes) {
 //     $routes->get('user/(:num)', 'User::getEdit/$1');
