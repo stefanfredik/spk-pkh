@@ -128,6 +128,7 @@ $routes->group('laporan', static function ($router) {
 
 $routes->get("/login", "Login::index");
 $routes->post("/login", "Login::login");
+$routes->get('logout', 'Login::logout');
 
 
 // my custom router
