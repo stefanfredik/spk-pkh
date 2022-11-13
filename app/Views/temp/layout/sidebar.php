@@ -52,15 +52,6 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="/peserta" class="nav-link <?= @($url == 'peserta') ? 'active' : '' ?>">
-                        <i class="bi bi-people nav-icon"></i>
-                        <p>
-                            Data Peserta
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="bi bi-card-checklist nav-icon  <?= @($url == 'kriteria') ? 'active' : '' ?>"></i>
                         <p>
@@ -83,6 +74,17 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="nav-item">
+                    <a href="/peserta" class="nav-link <?= @($url == 'peserta') ? 'active' : '' ?>">
+                        <i class="bi bi-people nav-icon"></i>
+                        <p>
+                            Data Peserta
+                        </p>
+                    </a>
+                </li>
+
+
 
                 <li class="nav-item">
                     <a href="/tablemoora" class="nav-link">
