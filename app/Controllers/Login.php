@@ -12,17 +12,14 @@ class Login extends BaseController {
     public function index() {
         if (session()->get('isLogin')) return redirect()->to('/');
 
-        if ($this->request->getPost()) {
-            return $this->login();
-        }
-
         $data = [
             'title' => 'Halaman Login'
         ];
         return view('/login/index', $data);
     }
 
-    private function login() {
+
+    public function login() {
         $username   = $this->request->getPost('username');
         $password   = $this->request->getPost('pass');
         $userModel  = new UserModel();

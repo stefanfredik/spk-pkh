@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Controllers\Blt;
+namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\BltModel;
 use App\Models\KriteriaModel;
 use App\Models\PendudukModel;
+use App\Models\PesertaModel;
 use App\Models\SubkriteriaModel;
 use CodeIgniter\API\ResponseTrait;
 
-class Datapeserta extends BaseController {
+class Peserta extends BaseController {
     use ResponseTrait;
 
     private $url = 'peserta';
@@ -21,76 +21,76 @@ class Datapeserta extends BaseController {
         $this->kriteriaModel = new KriteriaModel();
         $this->pendudukModel = new PendudukModel();
         $this->subkriteriaModel = new SubkriteriaModel();
-        $this->bltModel = new BltModel();
+        $this->pesertaModel = new PesertaModel();
         $this->jumlahKriteria = $this->kriteriaModel->countAllResults();
     }
 
-    public function getIndex() {
+    public function index() {
         $data = [
             'url' => $this->url,
             'title' => 'Data Peserta'
         ];
 
-        return view('/bantuan/peserta/index', $data);
+        return view('/peserta/index', $data);
     }
 
-    public function getTambah() {
+    public function tambah() {
         $data = [
             'title' => 'Tambah Data Peserta',
             'url'   => $this->url,
-            'dataPenduduk' => $this->pendudukModel->findAll(),
-            'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
+            'dataPenduduk' => $this->pendudukModel->findAllNonBantuan(),
+            'dataKriteria' => $this->kriteriaModel->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->findAll(),
         ];
 
-        return view('/bantuan/peserta/tambah', $data);
+        return view('/peserta/tambah', $data);
     }
 
-    public function getTable() {
+    public function table() {
         $data = [
             'title' => 'Data Peserta',
             'url'   => $this->url,
-            'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
+            'dataKriteria' => $this->kriteriaModel->findAll(),
             'dataPenduduk' => $this->pendudukModel->findAll(),
-            'dataPeserta' => $this->bltModel->findAllDataBlt(),
+            'dataPeserta' => $this->pesertaModel->findAllPeserta(),
         ];
 
-        return view('/bantuan/peserta/table', $data);
+        return view('/peserta/table', $data);
     }
 
-    public function getEdit($id) {
+    public function edit($id) {
 
         $data = [
             'title' => 'Edit Data Peserta',
             'dataKriteria'  => $this->kriteriaModel->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->findAll(),
             'dataPenduduk' => $this->pendudukModel->findAll(),
-            'peserta' => $this->bltModel->find($id),
+            'peserta' => $this->pesertaModel->find($id),
             'url'   => $this->url
         ];
 
-        return $this->respond(view('/bantuan/peserta/edit', $data), 200);
+        return $this->respond(view('/peserta/edit', $data), 200);
     }
 
-    public function getDetail($id) {
+    public function detail($id) {
 
         $data = [
 
             'dataKriteria'  => $this->kriteriaModel->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->findAll(),
             'dataPenduduk' => $this->pendudukModel->findAll(),
-            'peserta' => $this->bltModel->findDataBlt($id),
+            'peserta' => $this->pesertaModel->findPeserta($id),
             'url'   => $this->url
         ];
 
         $data['title'] = 'Detail ' . $data['peserta']['nama_lengkap'];
 
-        return $this->respond(view('/bantuan/peserta/detail', $data), 200);
+        return $this->respond(view('/peserta/detail', $data), 200);
     }
 
-    public function postIndex() {
+    public function add() {
         $data = $this->request->getPost();
-        $this->bltModel->save($data);
+        $this->pesertaModel->save($data);
 
         $res = [
             'status' => 'success',
@@ -102,9 +102,9 @@ class Datapeserta extends BaseController {
     }
 
 
-    public function postSaveedit($id) {
+    public function save($id) {
         $data = $this->request->getPost();
-        $this->bltModel->update($id, $data);
+        $this->pesertaModel->update($id, $data);
 
         $res = [
             'status' => 'success',
@@ -117,9 +117,9 @@ class Datapeserta extends BaseController {
 
 
 
-    public function deleteDelete($id) {
+    public function delete($id) {
 
-        $this->bltModel->delete($id);
+        $this->pesertaModel->delete($id);
 
         $res = [
             'status'    => 'success',
@@ -127,9 +127,5 @@ class Datapeserta extends BaseController {
         ];
 
         return $this->respond($res, 200);
-    }
-
-    private function statusBerkas($id) {
-        $this->Peserta->first($id);
     }
 }

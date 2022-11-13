@@ -41,6 +41,7 @@ $routes->get('/', 'Landing::index');
 //     $routes->get('user/(:num)', 'User::getEdit/$1');
 // });
 
+$routes->get('home', 'Home::index');
 $routes->group('user', static function ($router) {
     $router->get('/', 'User::index');
     $router->get('(:num)', 'User::edit/$1');
@@ -65,6 +66,21 @@ $routes->group('penduduk', static function ($router) {
 
     $router->post('/', 'Penduduk::add');
     $router->post('(:num)', 'Penduduk::save/$1');
+});
+
+
+$routes->group('peserta', static function ($router) {
+    $router->get('/', 'Peserta::index');
+    $router->get('table', 'Peserta::table');
+    $router->get('tambah', 'Peserta::tambah');
+    $router->get('edit', 'Peserta::edit');
+    $router->get('(:num)', 'Peserta::edit/$1');
+    $router->get('detail/(:num)', 'Peserta::detail/$1');
+
+    $router->delete('(:num)', 'Peserta::delete/$1');
+
+    $router->post('/', 'Peserta::add');
+    $router->post('(:num)', 'Peserta::save/$1');
 });
 
 $routes->group('kriteria', static function ($router) {
@@ -99,36 +115,19 @@ $routes->group('subkriteria', static function ($router) {
 
 $routes->group('tablemoora', static function ($router) {
     $router->get('/', 'Perhitungan::index');
-    $router->get('table', 'Perhitungan::table');
-    $router->get('tambah', 'Perhitungan::tambah');
-    $router->get('edit', 'Perhitungan::edit');
-    $router->get('(:num)', 'Perhitungan::edit/$1');
-    $router->get('detail/(:num)', 'Perhitungan::detail/$1');
-
-    $router->delete('(:num)', 'Perhitungan::delete/$1');
-
-    $router->post('/', 'Perhitungan::add');
-    $router->post('(:num)', 'Perhitungan::save/$1');
 });
 
 $routes->group('keputusan', static function ($router) {
     $router->get('/', 'Keputusan::index');
-    $router->get('table', 'Keputusan::table');
-    $router->get('tambah', 'Keputusan::tambah');
-    $router->get('edit', 'Keputusan::edit');
-    $router->get('(:num)', 'Keputusan::edit/$1');
-    $router->get('detail/(:num)', 'Keputusan::detail/$1');
-
-    $router->delete('(:num)', 'Keputusan::delete/$1');
-
-    $router->post('/', 'Keputusan::add');
-    $router->post('(:num)', 'Keputusan::save/$1');
 });
 
 $routes->group('laporan', static function ($router) {
     $router->get('/', 'Laporan::index');
 });
 
+
+$routes->get("/login", "Login::index");
+$routes->post("/login", "Login::login");
 
 
 // my custom router

@@ -3,9 +3,9 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\BltModel;
 use App\Models\KriteriaModel;
 use App\Models\PendudukModel;
+use App\Models\PesertaModel;
 use App\Models\SubkriteriaModel;
 
 class Keputusan extends BaseController {
@@ -16,7 +16,7 @@ class Keputusan extends BaseController {
         $this->kriteriaModel = new KriteriaModel();
         $this->pendudukModel = new PendudukModel();
         $this->subkriteriaModel = new SubkriteriaModel();
-        $this->bltModel = new BltModel();
+        $this->pesertaModel = new PesertaModel();
 
         $this->jumlahKriteria = $this->kriteriaModel->countAllResults();
     }
@@ -27,7 +27,7 @@ class Keputusan extends BaseController {
             'title' => 'Data Perhitungan dan Table Moora',
             'dataKriteria' => $this->kriteriaModel->findAll(),
             'totalNilaiKriteria' => $this->totalNilaiKriteria,
-            'dataPeserta' => $this->bltModel->findAllDataBlt(),
+            'dataPeserta' => $this->pesertaModel->findAllPeserta(),
             'dataSubkriteria' => $this->subkriteriaModel->findAll(),
         ];
         return view('/keputusan/index', $data);

@@ -35,4 +35,11 @@ class PendudukModel extends Model {
         $this->join('kriteriapenduduk', 'penduduk.id = kriteriapenduduk.id_penduduk', 'left', 'penduduk.id as pend');
         return $this->findAll();
     }
+
+
+    public function findAllNonBantuan() {
+        $this->select("penduduk.*");
+        $this->join("peserta", "peserta.id_penduduk = penduduk.id", "left")->where("peserta.id", NULL);
+        return $this->findAll();
+    }
 }
