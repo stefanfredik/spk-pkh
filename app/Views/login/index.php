@@ -19,11 +19,15 @@
         <p class="h1">Halaman Login</p>
       </div>
       <div class="card-body">
+        <div class="text-start">
+          <?= view('Myth\Auth\Views\_message_block') ?>
+        </div>
         <p class="login-box-msg">Silahkan login terlebih dauhulu</p>
 
-        <form action="/login" method="post" onsubmit="login(event)">
+        <form role="form" action="<?= url_to('login') ?>" method="POST">
+          <?= csrf_field() ?>
           <div class="input-group mb-3">
-            <input id="username" name="username" type="text" class="form-control" placeholder="Masukan Username" required>
+            <input required placeholder="Masukan Username" value="<?= old('login'); ?>" name="login" type="text" id="username" class="form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" />
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -31,7 +35,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input id="password" type="password" name="password" class="form-control" placeholder="Masukan Password" required>
+            <input required placeholder="Masukan Password" name="password" type="password" id="password" class="py-3 form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" />
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -50,34 +54,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
-  <script>
-    function login(target) {
-      target.preventDefault();
-
-      let data = {
-        username: $("#username").val(),
-        pass: $("#password").val(),
-      }
-
-      axios.post("/login", data).then(res => {
-        if (res.status == 'error') {
-          return Swal.fire({
-            icon: 'error',
-            title: 'Login Gagal',
-            text: res.msg,
-            showConfirmButton: false,
-            timer: 1000,
-          });
-        }
-
-        return window.location.href = '/home';
-      });
-    }
-  </script>
-  <!-- 
-  <script src="../../plugins/jquery/jquery.min.js"></script>
-  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../../dist/js/adminlte.min.js"></script> -->
 </body>
 
 </html>

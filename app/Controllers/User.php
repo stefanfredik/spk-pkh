@@ -3,8 +3,9 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\UserModel;
+use App\Models\MyUserModel;
 use CodeIgniter\API\ResponseTrait;
+use Myth\Auth\Password;
 
 class User extends BaseController {
     use ResponseTrait;
@@ -12,7 +13,7 @@ class User extends BaseController {
     var $url = 'user';
 
     public function __construct() {
-        $this->userModel = new UserModel();
+        $this->userModel = new MyUserModel();
     }
 
     public function index() {
@@ -22,7 +23,7 @@ class User extends BaseController {
             'url'   => $this->url,
             'userData' => $this->userModel->findAll(),
         ];
-        // dd($data);
+
         return view('/user/index', $data);
     }
 
@@ -30,7 +31,8 @@ class User extends BaseController {
     public function tambah() {
         $data = [
             'title' => 'Tambah Data User',
-            'url'   => $this->url
+            'url'   => $this->url,
+            'jabatan' =>  $this->userModel->findAllRole()
         ];
 
         return view('/user/tambah', $data);
@@ -40,7 +42,8 @@ class User extends BaseController {
         $data = [
             'title' => 'Edit Data User',
             'user'  => $this->userModel->find($id),
-            'url'   => $this->url
+            'url'   => $this->url,
+            'jabatan' =>  $this->userModel->findAllRole()
         ];
 
         return $this->respond(view('/user/edit', $data), 200);
@@ -56,10 +59,10 @@ class User extends BaseController {
         return view('/user/table', $data);
     }
 
-    public function postIndex() {
+    public function add() {
         $rules = [
             'username'  => [
-                'rules'  => 'required|is_unique[user.username]',
+                'rules'  => 'required|is_unique[users.username]',
                 'errors' => [
                     'is_unique' => 'Username telah digunakan.'
                 ]
@@ -85,22 +88,56 @@ class User extends BaseController {
             ], 400);
         }
 
+        $request = $this->request->getPost();
 
-        $data = $this->request->getPost();
-        $data['password'] = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
-        $this->userModel->save($data);
+        $data = [
+            'nama_user' => $request['nama_user'],
+            'username' => $request['username'],
+            'password_hash' => Password::hash($request['password']),
+            'active'    => "1"
+        ];
+
+        $this->userModel->withGroup($request['jabatan'])->save($data);
 
         $res = [
-            'status' => 'success',
-            'msg'   => 'Data User Berhasil Ditambahkan.'
+            'status'    => 'success',
+            'msg'     => 'Berhasil menambah Data.',
         ];
 
         return $this->respond($res, 200);
     }
 
-    public function putEdit($id) {
-        return $this->respond($id);
+    public function save($id) {
+        $rules = [
+            'username'  => [
+                'rules'  => 'is_unique[user.username]',
+                'errors' => [
+                    'is_unique' => 'Username telah digunakan.'
+                ]
+            ],
+        ];
+
+        if (!$this->validate($rules)) {
+            return $this->respond([
+                'status' => 'error',
+                'error' => $this->validation->getErrors()
+            ], 400);
+        }
+
+
+
+        $data = $this->request->getPost();
+        $this->userModel->updateGroup($id, $this->request->getPost("jabatan"));
+        $this->userModel->update($id, $data);
+
+        $res = [
+            'status'    => 'success',
+            'msg'     => 'Berhasil mengedit Data.',
+        ];
+
+        return $this->respond($res, 200);
     }
+
 
     public function delete($id) {
         $this->userModel->delete($id);

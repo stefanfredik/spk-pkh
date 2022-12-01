@@ -42,6 +42,7 @@ $routes->get('/', 'Landing::index');
 // });
 
 $routes->get('home', 'Home::index');
+
 $routes->group('user', static function ($router) {
     $router->get('/', 'User::index');
     $router->get('(:num)', 'User::edit/$1');
@@ -51,7 +52,8 @@ $routes->group('user', static function ($router) {
 
     $router->delete('(:num)', 'User::delete/$1');
 
-    $router->post('/', 'User::postIndex');
+    $router->post('/', 'User::add');
+    $router->post('(:num)', 'User::save/$1');
 });
 
 $routes->group('penduduk', static function ($router) {
@@ -65,7 +67,7 @@ $routes->group('penduduk', static function ($router) {
     $router->delete('(:num)', 'Penduduk::delete/$1');
 
     $router->post('/', 'Penduduk::add');
-    $router->post('(:num)', 'Penduduk::save/$1');
+    $router->post('/(:num)', 'Penduduk::save/$1');
 });
 
 
@@ -126,9 +128,9 @@ $routes->group('laporan', static function ($router) {
 });
 
 
-$routes->get("/login", "Login::index");
-$routes->post("/login", "Login::login");
-$routes->get('logout', 'Login::logout');
+// $routes->get("/login", "Login::index");
+// $routes->post("/login", "Login::login");
+// $routes->get('logout', 'Login::logout');
 
 
 // my custom router

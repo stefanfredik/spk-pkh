@@ -11,7 +11,7 @@
             class="brand-image img-circle elevation-3"
             style="opacity: 0.8"
           /> -->
-            <span class="brand-text font-weight-light  text-chite display-6">SPKH PKH</span>
+            <span class="brand-text font-weight-light  text-chite display-6"><?= WEBTITLE; ?></span>
         </a>
     </div>
 
@@ -34,6 +34,17 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
+                    <a href="/penduduk" class="nav-link <?= @($url == 'penduduk') ? 'active' : '' ?>">
+                        <i class="bi bi-people nav-icon"></i>
+                        <p>
+                            Data Penduduk
+                        </p>
+                    </a>
+                </li>
+
+                <hr>
+
+                <li class="nav-item">
                     <a href="/user  " class="nav-link  <?= @($url == 'user') ? 'active' : '' ?>">
                         <i class="bi bi-people-fill nav-icon"></i>
                         <p>
@@ -44,9 +55,9 @@
 
                 <li class="nav-item">
                     <a href="/penduduk" class="nav-link <?= @($url == 'penduduk') ? 'active' : '' ?>">
-                        <i class="bi bi-people nav-icon"></i>
+                        <i class="bi bi-people nav-icon" ></i>
                         <p>
-                            Data Penduduk
+                            Se
                         </p>
                     </a>
                 </li>

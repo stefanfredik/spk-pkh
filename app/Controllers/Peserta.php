@@ -95,7 +95,6 @@ class Peserta extends BaseController {
         $res = [
             'status' => 'success',
             'msg'   => 'Data Kriteria Berhasil Ditambahkan.',
-            'data'  => $data
         ];
 
         return $this->respond($res, 200);
@@ -109,7 +108,6 @@ class Peserta extends BaseController {
         $res = [
             'status' => 'success',
             'msg'   => 'Data User Berhasil Diupdate.',
-            'data'  => $data
         ];
 
         return $this->respond($res, 200);
