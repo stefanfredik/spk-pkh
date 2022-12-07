@@ -20,6 +20,7 @@ class SubkriteriaModel extends Model {
         $this->select('kriteria.kriteria');
         $this->join('kriteria', 'kriteria.id = subkriteria.id_kriteria');
         $this->orderBy('id_kriteria', 'ASC');
+        $this->orderBy('subkriteria.nilai', 'desc');
         return parent::findAll();
     }
 }

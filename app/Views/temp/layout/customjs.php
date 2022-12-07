@@ -161,4 +161,21 @@
             })
         })
     }
+
+    async function detail(url, target) {
+        // target.preventDefault();
+        const id = target.getAttribute("data-id");
+        $("#modal").modal("hide");
+        $.get(`/${url}/${id}`, (data, status) => {
+            if (status === "success") {
+                $("#modalArea").html(data);
+                $("#modal").modal("show")
+            }
+        }).catch(err => {
+            Toast.fire({
+                icon: "error",
+                title: "Gagal mengedit data!"
+            })
+        })
+    }
 </script>

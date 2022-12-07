@@ -30,6 +30,7 @@
           <li><a class="nav-link scrollto active" href="#home">Home</a></li>
           <li><a class="nav-link scrollto" href="#tentang">Tentang</a></li>
           <li>
+
             <a class="getstarted scrollto" href="/login">LOGIN</a>
           </li>
         </ul>

@@ -1,16 +1,11 @@
 <aside class="main-sidebar bg-primary  sidebar-light-primary elevation-4">
     <div class="text-center">
-        <a href="/" class="brand-link ">
-            <!-- <div class="brand-image  img-circle elevation-3">
-                <i class="bi bi-person-circle"></i>
-            </div> -->
+        <a href="/dashboard" class="brand-link ">
+            <div class="brand-image  img-circle elevation-3">
+                <img width="45px" class="img img-fluid" src="/assets/img/logo.png" alt="" srcset="">
+            </div>
 
-            <!-- <img
-            src="dist/img/AdminLTELogo.png"
-            alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3"
-            style="opacity: 0.8"
-          /> -->
+            <!-- <img src="/assets/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8" /> -->
             <span class="brand-text font-weight-light  text-chite display-6"><?= WEBTITLE; ?></span>
         </a>
     </div>
@@ -27,17 +22,17 @@
             </div>
 
             <div class="info">
-                <a href="#" class="d-block"><?= session()->get("namaUser") ?? "User"; ?></a>
+                <a href="#" class="d-block"><?= user()->nama_user ?></a>
             </div>
         </div>
 
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="/penduduk" class="nav-link <?= @($url == 'penduduk') ? 'active' : '' ?>">
-                        <i class="bi bi-people nav-icon"></i>
+                    <a href="/dashboard" class="nav-link <?= url_is('/home') ? 'active' : '' ?>">
+                        <i class="bi bi-house-door"></i>
                         <p>
-                            Data Penduduk
+                            Dashboard
                         </p>
                     </a>
                 </li>
@@ -55,9 +50,9 @@
 
                 <li class="nav-item">
                     <a href="/penduduk" class="nav-link <?= @($url == 'penduduk') ? 'active' : '' ?>">
-                        <i class="bi bi-people nav-icon" ></i>
+                        <i class="bi bi-people nav-icon"></i>
                         <p>
-                            Se
+                            Data Penduduk
                         </p>
                     </a>
                 </li>
@@ -116,12 +111,28 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="/laporan" class="nav-link">
-                        <i class="bi bi-card-list nav-icon"></i>
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-card-list nav-icon  <?= @($url == 'kriteria') ? 'active' : '' ?>"></i>
                         <p>
                             Laporan
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/laporan/penduduk" class="nav-link  <?= url_is('laporan/penduduk') ? 'active' : '' ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Penduduk</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/laporan/peserta" class="nav-link  <?= url_is('laporan/peserta') ? 'active' : '' ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Peserta</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <hr>

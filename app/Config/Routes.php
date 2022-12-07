@@ -41,7 +41,7 @@ $routes->get('/', 'Landing::index');
 //     $routes->get('user/(:num)', 'User::getEdit/$1');
 // });
 
-$routes->get('home', 'Home::index');
+$routes->get('dashboard', 'Dashboard::index');
 
 $routes->group('user', static function ($router) {
     $router->get('/', 'User::index');
@@ -67,7 +67,7 @@ $routes->group('penduduk', static function ($router) {
     $router->delete('(:num)', 'Penduduk::delete/$1');
 
     $router->post('/', 'Penduduk::add');
-    $router->post('/(:num)', 'Penduduk::save/$1');
+    $router->post('(:num)', 'Penduduk::save/$1');
 });
 
 
@@ -124,7 +124,8 @@ $routes->group('keputusan', static function ($router) {
 });
 
 $routes->group('laporan', static function ($router) {
-    $router->get('/', 'Laporan::index');
+    $router->get('peserta', 'Laporan::laporanPeserta');
+    $router->get('penduduk', 'Laporan::laporanPenduduk');
 });
 
 

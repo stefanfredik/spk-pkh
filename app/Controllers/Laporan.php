@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Controllers\Bpnt\Subkriteria;
 use App\Models\BltModel;
 use App\Models\KriteriaModel;
+use App\Models\PendudukModel;
 use App\Models\PesertaModel;
 use App\Models\SubkriteriaModel;
 use CodeIgniter\API\ResponseTrait;
@@ -23,19 +24,31 @@ class Laporan extends BaseController {
         $this->pesertaModel  = new PesertaModel();
         $this->kriteriaModel = new KriteriaModel();
         $this->subkriteriaModel = new SubkriteriaModel();
+        $this->pendudukModel = new PendudukModel();
     }
 
-    public function index() {
+    public function laporanPeserta() {
         $data = [
-            'title' => 'Laporan',
+            'title' => 'Data Laporan Peserta',
             'dataPeserta' => $this->pesertaModel->findAllPeserta(),
             'dataKriteria' => $this->kriteriaModel->findAll(),
             'dataSubkriteria' => $this->subkriteriaModel->findAll(),
             'url'   => $this->url,
         ];
 
-        // dd($data);
-        return view('laporan/index', $data);
+        return view('laporan/peserta/index', $data);
+    }
+
+
+    public function laporanPenduduk() {
+        $data = [
+            'title' => 'Data Laporan Penduduk',
+            'dataPenduduk' => $this->pendudukModel->findAll(),
+            'url'   => $this->url,
+            'dataKriteria' => $this->kriteriaModel->findAll(),
+        ];
+
+        return view('laporan/penduduk/index', $data);
     }
 
     public function getCetak($bantuan) {

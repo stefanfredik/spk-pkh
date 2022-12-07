@@ -104,14 +104,6 @@
                         </div>
                     </div>
 
-                    <div class="row mb-2">
-                        <div class="col-md-4">
-                            <label class="form-label">Status</label>
-                        </div>
-                        <div class="col-md-8">
-                            <input name="status" type="text" class="form-control" required>
-                        </div>
-                    </div>
 
                 </div>
                 <div class="modal-footer">

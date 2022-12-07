@@ -43,6 +43,7 @@ class Subkriteria extends BaseController {
             'dataKriteria' => $this->kriteriaModel->findAll(),
         ];
 
+        // dd($data);
         return view('/subkriteria/table', $data);
     }
 
