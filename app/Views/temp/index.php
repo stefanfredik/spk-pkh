@@ -13,7 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <?= $this->include("temp/layout/sidebar"); ?>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper ">
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">

@@ -22,11 +22,11 @@
     <div class="col-sm-6 col-lg-2">
         <div class="card mb-4 shadow">
             <div class="card-header bg-primary">
-                <h3>Data User</h3>
+                <h5>Data User</h5>
             </div>
             <div class="card-body pb-0 d-flex justify-content-between align-items-start p-3">
                 <div>
-                    <div class="fs-4 fw-semibold">Jumlah</div>
+                    <div class="fs-5 fw-semibold">Jumlah</div>
                     <div>User</div>
                 </div>
             </div>
@@ -36,11 +36,11 @@
     <div class="col-sm-6 col-lg-2">
         <div class="card mb-4 shadow">
             <div class="card-header bg-primary">
-                <h3>Penduduk</h3>
+                <h5>Penduduk</h5>
             </div>
             <div class="card-body pb-0 d-flex justify-content-between align-items-start p-3">
                 <div>
-                    <div class="fs-4 fw-semibold">Jumlah</div>
+                    <div class="fs-5 fw-semibold">Jumlah</div>
                     <div>Penduduk</div>
                 </div>
             </div>
@@ -50,11 +50,11 @@
     <div class="col-sm-6 col-lg-2">
         <div class="card mb-4 shadow">
             <div class="card-header bg-primary">
-                <h3>Data Peserta</h3>
+                <h5>Data Peserta</h5>
             </div>
             <div class="card-body pb-0 d-flex justify-content-between align-items-start p-3">
                 <div>
-                    <div class="fs-4 fw-semibold">Jumlah</div>
+                    <div class="fs-5 fw-semibold">Jumlah</div>
                     <div>Penduduk</div>
                 </div>
             </div>
@@ -64,11 +64,11 @@
     <div class="col-sm-6 col-lg-2">
         <div class="card mb-4 shadow">
             <div class="card-header bg-primary">
-                <h3>Data Kriteria</h3>
+                <h5>Data Kriteria</h5>
             </div>
             <div class="card-body pb-0 d-flex justify-content-between align-items-start p-3">
                 <div>
-                    <div class="fs-4 fw-semibold">Jumlah</div>
+                    <div class="fs-5 fw-semibold">Jumlah</div>
                     <div>User</div>
                 </div>
             </div>
@@ -79,11 +79,11 @@
     <div class="col-sm-6 col-lg-2">
         <div class="card mb-4 shadow">
             <div class="card-header bg-primary">
-                <h3>Sub Kriteria</h3>
+                <h5>Sub Kriteria</h5>
             </div>
             <div class="card-body pb-0 d-flex justify-content-between align-items-start p-3">
                 <div>
-                    <div class="fs-4 fw-semibold">Jumlah</div>
+                    <div class="fs-5 fw-semibold">Jumlah</div>
                     <div>User</div>
                 </div>
             </div>
@@ -93,11 +93,11 @@
     <div class="col-sm-6 col-lg-2">
         <div class="card mb-4 shadow">
             <div class="card-header bg-primary">
-                <h3>Laporan</h3>
+                <h5>Laporan</h5>
             </div>
             <div class="card-body pb-0 d-flex justify-content-between align-items-start p-3">
                 <div>
-                    <div class="fs-4 fw-semibold">Jumlah</div>
+                    <div class="fs-5 fw-semibold">Jumlah</div>
                     <div>User</div>
                 </div>
             </div>

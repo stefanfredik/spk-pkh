@@ -15,6 +15,8 @@ class Penduduk extends BaseController {
     }
 
     public function index() {
+
+
         $data = [
             'title' => 'Data Penduduk',
             'url'   => $this->url

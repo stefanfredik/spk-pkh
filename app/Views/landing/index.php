@@ -30,8 +30,11 @@
           <li><a class="nav-link scrollto active" href="#home">Home</a></li>
           <li><a class="nav-link scrollto" href="#tentang">Tentang</a></li>
           <li>
-
-            <a class="getstarted scrollto" href="/login">LOGIN</a>
+            <?php if (!logged_in()) : ?>
+              <a class="getstarted scrollto" href="/login">LOGIN</a>
+            <?php else : ?>
+              <a class="getstarted scrollto" href="/dashboard">Dashboard</a>
+            <?php endif; ?>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -44,7 +47,7 @@
       <div class="row">
         <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
           <div>
-            <h1>Selamat Datang di <?= WEBTITLE ?></h1>
+            <h1 class="fw-bold">Selamat Datang di <?= WEBTITLE ?></h1>
             <h2>
               <?php
               $lower = strtolower(WEBNAME);
@@ -54,7 +57,7 @@
           </div>
         </div>
         <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">
-          <img src="/landing/img/hero-img.png" class="img-fluid" alt="" />
+          <img src="/assets/img/pkh.png" class="img-fluid" alt="" />
         </div>
       </div>
     </div>
@@ -63,66 +66,39 @@
     <section id="tentang" class="features">
       <div class="container">
         <div class="section-title">
-          <h2>Bantuan PKH</h2>
+          <h2>Tentang PKH</h2>
+          <h5>Apa itu PKH?</h5>
           <p>
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-            ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
-            quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
-            Quia fugiat sit in iste officiis commodi quidem hic quas.
+            PKH adalah program pemberian uang tunai kepada Keluarga Penerima Manfaat (KPM) berdasarkan persyaratan dan ketentuan yang telah ditetapkan dengan melaksanakan kewajibannya.
           </p>
+          <br>
+          <h5>Siapa peserta PKH?</h5>
+          <p>Peserta PKH adalah Ibu Rumah Tangga dari keluarga yang terpilih melalui mekanisme pemilihan oleh BPS sesuai kriteria yang ditetapkan (Ibu Hamil/Nifas, memiliki bayi s.d. Usia prasekolah dan anak usia sekolah dasar – SMP).</p>
         </div>
+
+        <hr>
 
         <div class="row no-gutters">
           <div class="col-xl-7 d-flex align-items-stretch order-2 order-lg-1">
             <div class="content d-flex flex-column justify-content-center">
               <div class="row">
-                <div class="col-md-6 icon-box" data-aos="fade-up">
+                <div class="col-md-12 icon-box" data-aos="fade-up">
                   <i class="bx bx-receipt"></i>
-                  <h4>Corporis voluptates sit</h4>
-                  <p>
-                    Consequuntur sunt aut quasi enim aliquam quae harum
-                    pariatur laboris nisi ut aliquip
-                  </p>
+                  <h4>Manfaat</h4>
+                  <p>Merubah perilaku keluarga sangat miskin untuk memberikan perhatian yang besar kepada pendidikan dan kesehatan anaknya</p>
+                  <p>Untuk jangka pendek memberikan income effect kepada rumah tangga miskin melalui pengurangan beban pengeluaran rumah tangga sangat miskin</p>
+                  <p>Untuk jangka panjang dapat memutus ratai kemiskinan antar generasi melalui: Peningkatan kualitas kesehata/nutrisi, pendidikan dan kapasitas pendapatan anak dimasa depan (price effect anak keluarga sangat miskin).Memberikan kepastian kepada si anak akan masa depannya (insurance effect)</p>
+                  <p>Mengurangi pekerja anak</p>
+                  <p>Mempercepat pencapaian MDGs (melalui peningkatan akses pendidikan, peningkatan kesehatan ibu hamil, pengurangan kematian balita, dan peningkatan kesetaraan jender)</p>
                 </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                  <i class="bx bx-cube-alt"></i>
-                  <h4>Ullamco laboris nisi</h4>
-                  <p>
-                    Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt
-                  </p>
-                </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                  <i class="bx bx-images"></i>
-                  <h4>Labore consequatur</h4>
-                  <p>
-                    Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut
-                    maiores omnis facere
-                  </p>
-                </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                  <i class="bx bx-shield"></i>
-                  <h4>Beatae veritatis</h4>
-                  <p>
-                    Expedita veritatis consequuntur nihil tempore laudantium
-                    vitae denat pacta
-                  </p>
-                </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-                  <i class="bx bx-atom"></i>
-                  <h4>Molestiae dolor</h4>
-                  <p>
-                    Et fuga et deserunt et enim. Dolorem architecto ratione
-                    tensa raptor marte
-                  </p>
-                </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-                  <i class="bx bx-id-card"></i>
-                  <h4>Explicabo consectetur</h4>
-                  <p>
-                    Est autem dicta beatae suscipit. Sint veritatis et sit
-                    quasi ab aut inventore
-                  </p>
+                <div class="col-md-12 icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <i class="bi bi-app-indicator"></i>
+
+                  <h4>Tujuan</h4>
+                  <p>Meningkatkan kemampuan Keluarga Penerima Manfaat (KPM) untuk mengakses/memanfaatkan pelayanan pendidikan dan kesehatan </p>
+                  <p>Meningkatkan status kesehatan dan gizi ibu hamil/nifas dan anak dibawah 6 tahun dari KPM </p>
+                  <p>Meningkatkan angka partispasi pendidikan anak – anak (usia wajib belajar SD/SMP) KPM </p>
+                  <p>>Meningkatkan kondisi sosial ekonomi KPM </p>
                 </div>
               </div>
             </div>

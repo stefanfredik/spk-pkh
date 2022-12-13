@@ -14,9 +14,13 @@
 
 <body class="hold-transition login-page">
   <div class="login-box">
-    <div class="card card-outline card-primary shadow">
+    <div class="card card-outline card-primary shadow d-flex  flex-col text-center">
+
       <div class="card-header text-center">
-        <p class="h1">Halaman Login</p>
+        <img width="40%" src="/assets/img/logo.png" alt="">
+        <br>
+        <p class="h3">Halaman Login</p>
+
       </div>
       <div class="card-body">
         <div class="text-start">
