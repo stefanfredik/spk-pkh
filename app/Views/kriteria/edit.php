@@ -42,15 +42,20 @@
                         <div class="col-md-4">
                             <label class="form-label">Cost/ Benefit</label>
                         </div>
-                        <div class="col-md-8">
-                            <input value="cost" <?= ($kriteria['type'] == 'cost') ? 'checked' : ''; ?> class="form-check-input" type="radio" name="type" id="cost">
-                            <label class="form-check-label" for="cost">
-                                Cost
-                            </label>
-                            <input value="benefit" <?= ($kriteria['type'] == 'benefit') ? 'checked' : ''; ?> class="form-check-input" type="radio" name="type" id="benefit">
-                            <label class="form-check-label" for="benefit">
-                                Benefit
-                            </label>
+                        <div class="col-md-8 d-flex flex-row gap-5">
+                            <div>
+                                <input value="cost" <?= ($kriteria['type'] == 'cost') ? 'checked' : ''; ?> class="form-check-input" type="radio" name="type" id="cost">
+                                <label class="form-check-label" for="cost">
+                                    Cost
+                                </label>
+                            </div>
+
+                            <div>
+                                <input value="benefit" <?= ($kriteria['type'] == 'benefit') ? 'checked' : ''; ?> class="form-check-input" type="radio" name="type" id="benefit">
+                                <label class="form-check-label" for="benefit">
+                                    Benefit
+                                </label>
+                            </div>
                             <div id="" class="invalid-feedback"></div>
                         </div>
                     </div>

@@ -3,18 +3,18 @@
 }
 
 .sidebar {
-  background-color: #1565c0;
+  background-color: #64b5f6;
 }
 
 .sidebar-nav .nav-link.active {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  color: #1565c0;
+  color: #64b5f6;
   background: white;
 }
 
 .sidebar-nav .nav-link.active .nav-icon {
-  color: #1565c0;
+  color: #64b5f6;
 }
 
 .bg-light {
@@ -22,7 +22,7 @@
 }
 
 .sidebar-brand {
-  background-color: #003c8f;
+  background-color: #64b5f6;
 }
 
 .header {

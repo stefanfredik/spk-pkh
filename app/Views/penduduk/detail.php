@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-1">
+                <!-- <div class="row mb-1">
                     <div class="col-md-4">
                         <label class="form-label">No KK</label>
                     </div>
@@ -33,7 +33,7 @@
                     <div class="col-md-8">
                         <p><?= $penduduk['no_kk'] ?></p>
                     </div>
-                </div>
+                </div> -->
 
 
 

@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Controllers\Bpnt\Subkriteria;
-use App\Models\BltModel;
 use App\Models\KriteriaModel;
 use App\Models\PendudukModel;
 use App\Models\PesertaModel;
@@ -51,53 +50,35 @@ class Laporan extends BaseController {
         return view('laporan/penduduk/index', $data);
     }
 
-    public function getCetak($bantuan) {
-        if ($bantuan == 'blt') {
-            return $this->cetakBlt();
-        } else if ($bantuan == 'penduduk') {
-            return $this->cetakPenduduk();
-        }
-
-        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-    }
-
-
-    private function cetakBlt() {
+    public function cetakPeserta() {
         $data = [
-            'title' => 'Laporan',
+            'title' => 'Data Laporan Peserta',
             'dataPeserta' => $this->pesertaModel->findAllPeserta(),
-            'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
-            'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
-            'url'   => $this->url,
-            'jenisBantuan' => $this->jenisBantuan
+            'dataKriteria' => $this->kriteriaModel->findAll(),
+            'dataSubkriteria' => $this->subkriteriaModel->findAll(),
         ];
 
-        $pdf = new Dompdf;
+        $pdf = new Dompdf();
 
-        $html = view("/bantuan/laporan/cetakBlt", $data);
+        $html = view("/laporan/peserta/cetak", $data);
 
         $pdf->loadHtml($html);
-        $pdf->setPaper('A4', 'potrait');
+        $pdf->setPaper('A4', 'landscape');
         $pdf->render();
         return $pdf->stream();
     }
 
-    private function cetakPenduduk() {
+    public function cetakPenduduk() {
         $data = [
-            'title' => 'Laporan',
-            'dataPeserta' => $this->bltModel->findAllDataBlt(),
-            'dataKriteria' => $this->kriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
-            'dataSubkriteria' => $this->subkriteriaModel->where('jenis_bantuan', $this->jenisBantuan)->findAll(),
-            'url'   => $this->url,
-            'jenisBantuan' => $this->jenisBantuan
+            'title' => 'Data Laporan Penduduk',
+            'dataPenduduk' => $this->pendudukModel->findAll(),
+            'dataKriteria' => $this->kriteriaModel->findAll(),
         ];
 
         $pdf = new Dompdf;
-
-        $html = view("/bantuan/laporan/cetakPenduduk", $data);
-
+        $html = view("/laporan/penduduk/cetak", $data);
         $pdf->loadHtml($html);
-        $pdf->setPaper('A4', 'potrait');
+        $pdf->setPaper('A4', 'landscape');
         $pdf->render();
         return $pdf->stream();
     }

@@ -17,14 +17,14 @@
                         </div>
                     </div>
 
-                    <div class="row mb-2">
+                    <!-- <div class="row mb-2">
                         <div class="col-md-4">
                             <label class="form-label">No KK</label>
                         </div>
                         <div class="col-md-8">
                             <input value="<?= $penduduk['no_kk'] ?>" name="no_kk" type="text" class="form-control" required>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="row mb-2">
                         <div class="col-md-4">

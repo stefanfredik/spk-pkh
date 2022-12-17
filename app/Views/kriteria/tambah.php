@@ -42,7 +42,8 @@
                         <div class="col-md-4">
                             <label class="form-label">Cost/ Benefit</label>
                         </div>
-                        <div class="col-md-8 d-flex gap-5">
+
+                        <div class="col-md-8 d-flex flex-row gap-5">
                             <div>
                                 <input value="cost" class="form-check-input" type="radio" name="type" id="cost" checked>
                                 <label class="form-check-label" for="cost">
@@ -50,12 +51,12 @@
                                 </label>
                             </div>
                             <div>
-                                <input value="benefit" class="form-check-input" type="radio" name="type" id="benefit" checked>
+                                <input value="benefit" class=" form-check-input" type="radio" name="type" id="benefit" checked>
                                 <label class="form-check-label" for="benefit">
                                     Benefit
                                 </label>
+                                <div id="" class="invalid-feedback"></div>
                             </div>
-                            <div id="" class="invalid-feedback"></div>
                         </div>
                     </div>
                 </div>

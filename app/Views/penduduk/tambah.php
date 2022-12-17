@@ -15,7 +15,7 @@
                             <input name="nik" type="text" class="form-control" required>
                         </div>
                     </div>
-
+                    <!-- 
                     <div class="row mb-2">
                         <div class="col-md-4">
                             <label class="form-label">No KK</label>
@@ -23,7 +23,7 @@
                         <div class="col-md-8">
                             <input name="no_kk" type="text" class="form-control" required>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="row mb-2">
                         <div class="col-md-4">

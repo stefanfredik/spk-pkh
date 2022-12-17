@@ -43,7 +43,7 @@ $routes->get('/', 'Landing::index');
 
 $routes->get('dashboard', 'Dashboard::index');
 
-$routes->group('user', static function ($router) {
+$routes->group('user', ['filter' => 'role:Admin'], static function ($router) {
     $router->get('/', 'User::index');
     $router->get('(:num)', 'User::edit/$1');
     $router->get('table', 'User::table');
@@ -56,7 +56,7 @@ $routes->group('user', static function ($router) {
     $router->post('(:num)', 'User::save/$1');
 });
 
-$routes->group('penduduk', static function ($router) {
+$routes->group('penduduk', ['filter' => 'role:Admin'], static function ($router) {
     $router->get('/', 'Penduduk::index');
     $router->get('table', 'Penduduk::table');
     $router->get('tambah', 'Penduduk::tambah');
@@ -71,7 +71,7 @@ $routes->group('penduduk', static function ($router) {
 });
 
 
-$routes->group('peserta', static function ($router) {
+$routes->group('peserta', ['filter' => 'role:Admin'], static function ($router) {
     $router->get('/', 'Peserta::index');
     $router->get('table', 'Peserta::table');
     $router->get('tambah', 'Peserta::tambah');
@@ -85,7 +85,7 @@ $routes->group('peserta', static function ($router) {
     $router->post('(:num)', 'Peserta::save/$1');
 });
 
-$routes->group('kriteria', static function ($router) {
+$routes->group('kriteria', ['filter' => 'role:Admin'], static function ($router) {
     $router->get('/', 'Kriteria::index');
     $router->get('table', 'Kriteria::table');
     $router->get('tambah', 'Kriteria::tambah');
@@ -101,7 +101,7 @@ $routes->group('kriteria', static function ($router) {
 
 
 
-$routes->group('subkriteria', static function ($router) {
+$routes->group('subkriteria', ['filter' => 'role:Admin'], static function ($router) {
     $router->get('/', 'Subkriteria::index');
     $router->get('table', 'Subkriteria::table');
     $router->get('tambah', 'Subkriteria::tambah');
@@ -115,17 +115,19 @@ $routes->group('subkriteria', static function ($router) {
     $router->post('(:num)', 'Subkriteria::save/$1');
 });
 
-$routes->group('tablemoora', static function ($router) {
+$routes->group('tablemoora', ['filter' => 'role:Admin'], static function ($router) {
     $router->get('/', 'Perhitungan::index');
 });
 
-$routes->group('keputusan', static function ($router) {
+$routes->group('keputusan', ['filter' => 'role:Admin'], static function ($router) {
     $router->get('/', 'Keputusan::index');
 });
 
 $routes->group('laporan', static function ($router) {
-    $router->get('peserta', 'Laporan::laporanPeserta');
-    $router->get('penduduk', 'Laporan::laporanPenduduk');
+    $router->get('peserta', 'Laporan::laporanPeserta', ['filter' => 'role:Admin,pendamping-pkh,kepala-desa']);
+    $router->get('penduduk', 'Laporan::laporanPenduduk', ['filter' => 'role:Admin,kepala-desa']);
+    $router->get('penduduk/cetak', 'Laporan::cetakPenduduk', ['filter' => 'role:Admin,kepala-desa']);
+    $router->get('peserta/cetak', 'Laporan::cetakPeserta', ['filter' => 'role:Admin,kepala-desa,pendamping-pkh']);
 });
 
 

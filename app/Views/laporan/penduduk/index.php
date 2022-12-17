@@ -3,7 +3,7 @@
 <?= $this->section("content"); ?>
 <div class="row">
     <div class="col">
-        <a href="/laporan/peserta/cetak" class="btn btn-primary my-2"><i class="bi bi-printer-fill mx-2"></i> Cetak laporan</a>
+        <a href="/laporan/penduduk/cetak" class="btn btn-primary my-2"><i class="bi bi-printer-fill mx-2"></i> Cetak laporan</a>
         <div class="card border border-secondary">
             <div class="card-header">
                 <h3><?= $title; ?></h3>
@@ -23,12 +23,6 @@
                                 <th class="text-center">RT</th>
                                 <th class="text-center">RW</th>
                                 <th class="text-center">Desa</th>
-
-                                <?php foreach ($dataKriteria as $sk) : ?>
-                                    <th class="text-center"><?= $sk['kriteria']; ?></th>
-                                <?php endforeach; ?>
-
-                                <th class="text-center">Status Bantuan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,18 +40,7 @@
                                     <td><?= $dt['rt']; ?></td>
                                     <td><?= $dt['rw']; ?></td>
                                     <td><?= $dt['desa']; ?></td>
-
-                                    <?php foreach ($dataKriteria as $sk) :
-                                        $k = 'k_' . $sk['id'];
-
-                                        foreach ($dataSubkriteria as $ds) :
-                                            if ($dt[$k] == $ds['id']) echo "<td>" . $ds['subkriteria'] . "</td>";
-                                        endforeach; ?>
-                                    <?php endforeach; ?>
-
-                                    <td>BLT</td>
                                 </tr>
-
                             <?php endforeach; ?>
                         </tbody>
                     </table>
