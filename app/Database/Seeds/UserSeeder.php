@@ -15,8 +15,12 @@ class UserSeeder extends Seeder {
                 "description" => "Admin Groups",
             ],
             [
-                "name" => "Kepala Sekolah",
+                "name" => "kepala-sekolah",
                 "description" => "Kepala Sekolah",
+            ],
+            [
+                "name" => "pendamping-pkh",
+                "description" => "Pendamping PKH",
             ]
         ];
 
