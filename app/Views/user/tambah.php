@@ -24,7 +24,7 @@
                             <select class="form-control" name="jabatan" id="" required>
                                 <option value="">Pilih Jabatan</option>
                                 <?php foreach ($jabatan as $jb) : ?>
-                                    <option value="<?= $jb['name']; ?>"><?= $jb['name']; ?></option>
+                                    <option value="<?= $jb['name']; ?>"><?= $jb['description']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
