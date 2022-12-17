@@ -1,6 +1,6 @@
 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
     <li class="nav-item">
-        <a href="/dashboard" class="nav-link <?= url_is('/home') ? 'active' : '' ?>">
+        <a href="/dashboard" class="nav-link <?= url_is('/dashboard') ? 'active' : '' ?>">
             <i class="bi bi-house-door"></i>
             <p>
                 Dashboard
@@ -9,7 +9,7 @@
     </li>
 
     <li class="nav-item">
-        <a href="/laporan/peserta" class="nav-link <?= url_is('/home') ? 'active' : '' ?>">
+        <a href="/laporan/peserta" class="nav-link <?= url_is('/laporan/peserta') ? 'active' : '' ?>">
             <i class="bi bi-people-fill nav-icon"></i>
             <p>
                 Data Laporan Peserta
@@ -19,7 +19,7 @@
 
 
     <li class="nav-item">
-        <a href="/laporan/penduduk  " class="nav-link  <?= @($url == 'user') ? 'active' : '' ?>">
+        <a href="/laporan/penduduk" class="nav-link  <?= url_is('/laporan/penduduk') ? 'active' : '' ?>">
             <i class="bi bi-people-fill nav-icon"></i>
             <p>
                 Data Laporan Penduduk

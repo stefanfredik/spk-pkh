@@ -1,6 +1,6 @@
 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
     <li class="nav-item">
-        <a href="/dashboard" class="nav-link <?= url_is('/home') ? 'active' : '' ?>">
+        <a href="/dashboard" class="nav-link <?= url_is('/dashboard') ? 'active' : '' ?>">
             <i class="bi bi-house-door"></i>
             <p>
                 Dashboard
@@ -11,7 +11,7 @@
     <hr>
 
     <li class="nav-item">
-        <a href="/user  " class="nav-link  <?= @($url == 'user') ? 'active' : '' ?>">
+        <a href="/user  " class="nav-link  <?= url_is('/user') ? 'active' : '' ?>">
             <i class="bi bi-people-fill nav-icon"></i>
             <p>
                 Data User
@@ -20,7 +20,7 @@
     </li>
 
     <li class="nav-item">
-        <a href="/penduduk" class="nav-link <?= @($url == 'penduduk') ? 'active' : '' ?>">
+        <a href="/penduduk" class="nav-link <?= url_is('/penduduk')  ? 'active' : '' ?>">
             <i class="bi bi-people nav-icon"></i>
             <p>
                 Data Penduduk
@@ -30,7 +30,7 @@
 
     <li class="nav-item">
         <a href="#" class="nav-link">
-            <i class="bi bi-card-checklist nav-icon  <?= @($url == 'kriteria') ? 'active' : '' ?>"></i>
+            <i class="bi bi-card-checklist nav-icon  <?= url_is('/kriteria*')  ? 'active' : '' ?>"></i>
             <p>
                 Data Kriteria
                 <i class="right fas fa-angle-left"></i>
@@ -38,13 +38,13 @@
         </a>
         <ul class="nav nav-treeview">
             <li class="nav-item">
-                <a href="/kriteria" class="nav-link  <?= @($url == 'kriteria') ? 'active' : '' ?>">
+                <a href="/kriteria" class="nav-link  <?= url_is('/kriteria')  ? 'active' : '' ?>">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Kriteria</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/subkriteria" class="nav-link">
+                <a href="/subkriteria" class="nav-link  <?= url_is('/subkriteria')  ? 'active' : '' ?>">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Sub Kriteria</p>
                 </a>
