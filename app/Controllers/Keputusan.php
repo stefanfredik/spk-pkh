@@ -24,7 +24,7 @@ class Keputusan extends BaseController {
     public function index() {
         $this->totalNilaiKriteria = $this->kriteriaModel->selectSum('nilai')->first()['nilai'];
         $data = [
-            'title' => 'Data Perhitungan dan Table Moora',
+            'title' => 'Keputusan PKH',
             'dataKriteria' => $this->kriteriaModel->findAll(),
             'totalNilaiKriteria' => $this->totalNilaiKriteria,
             'dataPeserta' => $this->pesertaModel->findAllPeserta(),

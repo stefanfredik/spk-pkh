@@ -64,7 +64,7 @@
 
 
     <li class="nav-item">
-        <a href="/tablemoora" class="nav-link">
+        <a href="/tablemoora" class="nav-link <?= url_is('/tablemoora')  ? 'active' : '' ?>">
             <i class="nav-icon fas fa-th"></i>
             <p>
                 Table MOORA
@@ -73,7 +73,7 @@
     </li>
 
     <li class="nav-item">
-        <a href="/keputusan" class="nav-link">
+        <a href="/keputusan" class="nav-link <?= url_is('/keputusan')  ? 'active' : '' ?>">
             <i class="bi bi-check-all nav-icon"></i>
             <p>
                 Keputusan PKH
