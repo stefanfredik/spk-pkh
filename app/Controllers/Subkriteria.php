@@ -28,7 +28,7 @@ class Subkriteria extends BaseController {
 
     public function tambah() {
         $data = [
-            'title' => 'Tambah Data Kriteria',
+            'title' => 'Tambah Data Sub Kriteria',
             'kriteriaData' => $this->kriteriaModel->findAll(),
             'url'   => $this->url
         ];
@@ -37,7 +37,7 @@ class Subkriteria extends BaseController {
     }
     public function table() {
         $data = [
-            'title' => 'Data Kriteria',
+            'title' => 'Data Sub Kriteria',
             'url'   => $this->url,
             'dataSubkriteria' => $this->subkriteriaModel->findAllSubkriteria(),
             'dataKriteria' => $this->kriteriaModel->findAll(),
@@ -49,7 +49,7 @@ class Subkriteria extends BaseController {
 
     public function edit($id) {
         $data = [
-            'title' => 'Edit Data Penduduk',
+            'title' => 'Edit Data Sub Kriteria',
             'data'  => $this->subkriteriaModel->find($id),
             'dataKriteria' => $this->kriteriaModel->findAll(),
             'url'   => $this->url

@@ -52,7 +52,7 @@ class Kriteria extends BaseController {
 
     public function edit($id) {
         $data = [
-            'title' => 'Edit Data Penduduk',
+            'title' => 'Edit Data Kriteria',
             'kriteria'  => $this->kriteriaModel->find($id),
             'url'   => $this->url
         ];

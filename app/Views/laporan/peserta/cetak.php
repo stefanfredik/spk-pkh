@@ -19,7 +19,6 @@
     </thead>
     <tbody>
         <?php $no = 1;
-        // dd($dataPeserta);
         foreach ($dataPeserta as $dt) : ?>
             <tr>
                 <td class="text-center"><?= $no++; ?></td>

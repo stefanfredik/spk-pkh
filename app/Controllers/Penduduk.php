@@ -37,7 +37,7 @@ class Penduduk extends BaseController {
 
     public function tambah() {
         $data = [
-            'title' => 'Tambah Data User',
+            'title' => 'Tambah Data Penduduk',
             'url'   => $this->url
         ];
 
