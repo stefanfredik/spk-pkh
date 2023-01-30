@@ -18,7 +18,7 @@
                         <select class="form-control" name="jabatan" id="" required>
                             <option value="">Pilih Jabatan</option>
                             <?php foreach ($jabatan as $jb) : ?>
-                                <option <?= $user['jabatan'] == $jb['name'] ? 'selected' : '' ?> value="<?= $jb['id']; ?>"><?= $jb['description']; ?></option>
+                                <option <?= $user['jabatan'] == $jb['description'] ? 'selected' : '' ?> value="<?= $jb['id']; ?>"><?= $jb['description']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

@@ -1,4 +1,4 @@
-const isDebug = true;
+const isDebug = false;
 
 function debug(a) {
   if (isDebug) {
@@ -28,7 +28,7 @@ async function save(event) {
   const data = new FormData(form);
   const modal = $("#modal");
   axios
-    .post(`/${url}/`, data)
+    .post(`/${url}`, data)
     .then((res) => {
       debug(res);
       if (res.data.status == "success") {

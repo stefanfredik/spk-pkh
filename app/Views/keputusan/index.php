@@ -168,7 +168,6 @@ usort($peserta, fn ($a, $b) => $b['kriteria_nilai'] <=> $a['kriteria_nilai']);
                             <tr class="align-middle">
                                 <th>No</th>
                                 <th class="text-center">Rangking</th>
-                                <th>No. KK</td>
                                 <th>NIK</td>
                                 <th>Nama Lengkap</th>
                                 <th>Jenis Kelamin</td>
@@ -186,7 +185,6 @@ usort($peserta, fn ($a, $b) => $b['kriteria_nilai'] <=> $a['kriteria_nilai']);
                                 <tr>
                                     <td><?= $no++; ?></td>
                                     <td class="text-center"><?= $rank++; ?></td>
-                                    <td><?= $ps['no_kk'] ?></td>
                                     <td><?= $ps['nik'] ?></td>
                                     <td><?= $ps['nama_lengkap'] ?></td>
                                     <td><?= $ps['jenis_kelamin'] ?></td>
